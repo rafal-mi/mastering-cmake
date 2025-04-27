@@ -6,6 +6,7 @@
 add_library(MathFunctions mysqrt.cxx)
 
 # TODO 7: Create a variable USE_MYMATH using option and set default to ON
+# option(USE_MYMATH "Use tutorial provided math implementation" ON)
 
 # TODO 8: If USE_MYMATH is ON, use target_compile_definitions to pass
 # USE_MYMATH as a precompiled definition to our source files
