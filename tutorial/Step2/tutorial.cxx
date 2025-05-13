@@ -6,6 +6,10 @@
 // TODO 5: Include MathFunctions.h
 #include "TutorialConfig.h"
 
+#ifdef USE_MYMATH
+#  include "MathFunctions.h"
+#endif
+
 int main(int argc, char* argv[])
 {
   if (argc < 2) {
@@ -19,10 +23,12 @@ int main(int argc, char* argv[])
   // convert input to double
   double const inputValue = std::stod(argv[1]);
 
-  // TODO 6: Replace sqrt with mathfunctions::sqrt
+#ifdef USE_MYMATH
+  const double outputValue = mysqrt(inputValue);
+#else
+  const double outputValue = sqrt(inputValue);
+#endif
 
-  // calculate square root
-  double const outputValue = sqrt(inputValue);
   std::cout << "The square root of " << inputValue << " is " << outputValue
             << std::endl;
   return 0;
