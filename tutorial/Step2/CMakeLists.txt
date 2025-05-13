@@ -16,13 +16,12 @@ if(USE_MYMATH)
   add_subdirectory(MathFunctions)
   list(APPEND EXTRA_LIBS MathFunctions)
   list(APPEND EXTRA_INCLUDES "${PROJECT_SOURCE_DIR}/MathFunctions")
+  target_link_libraries(Tutorial PUBLIC MathFunctions)
 endif()
 
 # add the executable
 add_executable(Tutorial tutorial.cxx)
 
-# TODO 3: Use target_link_libraries to link the library to our executable
-target_link_libraries(Tutorial PUBLIC MathFunctions)
 
 # TODO 4: Add MathFunctions to Tutorial's target_include_directories()
 # Hint: ${PROJECT_SOURCE_DIR} is a path to the project source. AKA This folder!

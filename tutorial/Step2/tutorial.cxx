@@ -24,7 +24,7 @@ int main(int argc, char* argv[])
   double const inputValue = std::stod(argv[1]);
 
 #ifdef USE_MYMATH
-  const double outputValue = mysqrt(inputValue);
+  const double outputValue = mathfunctions::sqrt(inputValue);
 #else
   const double outputValue = sqrt(inputValue);
 #endif
