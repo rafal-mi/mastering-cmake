@@ -13,6 +13,7 @@ configure_file(TutorialConfig.h.in TutorialConfig.h)
 
 # TODO 2: Use add_subdirectory() to add MathFunctions to this project
 add_subdirectory(MathFunctions)
+list(APPEND EXTRA_INCLUDES "${PROJECT_SOURCE_DIR}/MathFunctions")
 
 # add the executable
 add_executable(Tutorial tutorial.cxx)
@@ -27,5 +28,5 @@ target_link_libraries(Tutorial PUBLIC MathFunctions)
 # so that we will find TutorialConfig.h
 target_include_directories(Tutorial PUBLIC
                            "${PROJECT_BINARY_DIR}"
-                           "${PROJECT_SOURCE_DIR}/MathFunctions"
+                           ${EXTRA_INCLUDES}
                            )
