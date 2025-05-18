@@ -20,8 +20,8 @@ configure_file(TutorialConfig.h.in TutorialConfig.h)
 # TODO 2: Remove EXTRA_INCLUDES list
 
 # add the MathFunctions library
-#add_subdirectory(MathFunctions)
-# list(APPEND EXTRA_INCLUDES "${PROJECT_SOURCE_DIR}/MathFunctions")
+add_subdirectory(MathFunctions)
+list(APPEND EXTRA_INCLUDES "${PROJECT_SOURCE_DIR}/MathFunctions")
 
 # add the executable
 add_executable(Tutorial tutorial.cxx)
@@ -31,13 +31,10 @@ add_executable(Tutorial tutorial.cxx)
 target_link_libraries(Tutorial PUBLIC MathFunctions)
 
 # TODO 3: Remove use of EXTRA_INCLUDES
-if(USE_MYMATH)
-  add_subdirectory(MathFunctions)
-  list(APPEND EXTRA_LIBS MathFunctions)
-endif()
 
 # add the binary tree to the search path for include files
 # so that we will find TutorialConfig.h
 target_include_directories(Tutorial PUBLIC
                            "${PROJECT_BINARY_DIR}"
+                           ${EXTRA_INCLUDES}
                            )
